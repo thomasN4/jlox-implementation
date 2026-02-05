@@ -1,0 +1,52 @@
+/*/* Testing block comments. */
+
+// /* why */
+// fun mult(a, b) {
+//     if (b == 0) {
+//         return 0;
+//     } else {
+//         return a + mult(a, b - 1);
+//     }
+// }
+
+/*
+ * block comment
+ * /* 
+ *  * nested block comment
+ *  * /* some garbage
+ *  *  * nested^2 block comment 
+ *  *  */
+ *  */
+ */
+fun pow(a, b) {
+    if (b == 0) {
+        return 1;
+    } else {
+//        return mult(a, pow(a, b - 1));
+        return a * pow(a, b - 1);
+    }
+}
+
+/*
+ * a^(a^(...^a)), where `a` appears b times
+ */
+fun tetr (a, b) {
+    if (b == 0) {
+        return 1;
+    } else {
+        return pow(a, tetr(a, b - 1));
+    }
+}
+
+fun id(x) {
+    return x;
+}
+
+fun main() {
+    var a = 2;
+    var b = 4;
+    var f = tetr;
+    print id(f)(a, b);  // expected: 65536
+}
+
+main();

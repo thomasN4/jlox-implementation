@@ -1,0 +1,5 @@
+1. Smalltalk implementations don't have that problem, because the check is implicitly performed while finding the method being called, by looking up the selector (which specifies the arity), unique to each method. Since there is something of a 1:1 correspondance between the message and the selector, the method is simply not called if the number of arguments is wrong.
+
+2. See source code.
+   
+3. A function's parameters are in the same scope its local variables. In Lox, `a` just gets redefined without any problem. In Java, this isn't allowed, but in C, this is allowed. I believe that a language shouldn't allow this, since that's kinda useless.

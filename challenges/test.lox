@@ -1,0 +1,15 @@
+fun returnFunction() {
+  var outside = "outside";
+
+  fun inner() {
+    print outside;
+  }
+
+  return inner;
+  //   return inner();
+}
+
+var fn = returnFunction();
+fn();
+//print fn;
+"foo";
