@@ -1,0 +1,7 @@
+[[file:ch12challenges.png]]
+
+1. See source code.
+
+2. See source code.
+
+3. Having the ability to control the accessibility of parts of a class allows for more secure data manipulation and clarity in how to use classes, by hiding internal machinery that is only useful for the class maintainer(s). Relatedly to that last point, encapsulation can also act somewhat like ducktyping, making thinking through some problems easier through abstraction. Not having to specify the visibility of parts of classes mainly seems to make coding simpler projects easier (especially in contexts where powerful IDEs aren't available), faster, and often with less boilerplate. In such languages, we can have some encapsulation by following some conventions that don't necessarily affect the actual behavior of the code (such as starting "private" or "protected" variable names with an underscore or two, and using extensive documentation). By following such conventions, even large projects can be maintained quite feasibly.

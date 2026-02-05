@@ -1,0 +1,35 @@
+[[file:ch4challenges.png]]
+
+1. It means that Python's and Haskell's tokens cannot be described by regular expressions. In the case of both of these languages, the tokens depend on a line's indentation (unlike C). In other words, there is context sensitivity.
+
+2. 
+   a) CoffeeScript: Spaces are required to distinguish between function calls and their arguments, denote indentation of blocks of code, instantiating objects with attributes (e.g.
+      #+BEGIN_SRC coffee
+        person =
+          name: 'John'
+          age: 30
+      #+END_SRC
+      ), and list comprehensions and ranges (e.g.
+      #+BEGIN_SRC coffee
+        numbers = (num for num in [1..10])
+      #+END_SRC
+      ).
+
+   b) Ruby: Let `foo` be a variable and `bar` be a method. The following line:
+      #+BEGIN_SRC ruby
+      print foo
+      #+END_SRC
+      , would print `foo`'s value, but
+      #+BEGIN_SRC ruby
+      print bar
+      #+END_SRC
+      would be invalid, and requires parentheses, like so:
+      #+BEGIN_SRC ruby
+      print(bar)
+      #+END_SRC
+      
+   c) C preprocessor: The placement of whitespace affects how macros are defined and expanded, and adjacent string literals separated by whitespace are concatenated.
+
+3. A parser that wouldn't discard those might be useful for detecting syntax errors in commented-out code, aid in documentation generation, specify various things that might be relevant to some sort of AI-assisted compiler, or even warning the user about commenting conventions.
+
+4. It was about as much work as I expected. Just had to set a `nestingLevel` variable and breaking out of the main block-comment function loop once `nestingLevel <= 0` and also of course some error handling for whether or not we are reaching the end.

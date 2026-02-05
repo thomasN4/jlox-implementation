@@ -1,0 +1,7 @@
+[[file:ch7challenges.png]]
+
+1. I wouldn't. Seems confusing. Neither C nor Java allow this kind of stuff.
+
+2. See source code.
+
+3. If we divide by zero, it throws a Java exception. I think it should follow the IEEE 754 standard, as in the case of C, Java, and probably Python. Since integers and floating point values are represented by the same type in Lox, division by zero should generally follow the standard and result in +/- infinity or NaN. But, it's much simpler to just throw a runtime error when that happens.
