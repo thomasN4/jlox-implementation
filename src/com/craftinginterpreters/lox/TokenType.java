@@ -1,0 +1,25 @@
+package com.craftinginterpreters.lox;
+
+enum TokenType {
+    // Single-character tokens.
+    LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
+    COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+	COLON, INTERR, MOD,
+
+    // One or two character tokens.
+    BANG, BANG_EQUAL,
+    EQUAL, EQUAL_EQUAL,
+    GREATER, GREATER_EQUAL,
+    LESS, LESS_EQUAL,
+    MINUS_EQUAL, PLUS_EQUAL, SLASH_EQUAL, STAR_EQUAL,
+
+    // Literals.
+    IDENTIFIER, NUMBER, STRING,
+
+    // Keywords.
+    AND, CLASS, ELSE, FALSE, FUN, FOR, IF, NIL, OR,
+    PRINT, RETURN, SUPER, THIS, TRUE, VAR, WHILE,
+    BREAK, CONTINUE, DEFAULT, DO, TRAIT,
+
+    EOF
+}

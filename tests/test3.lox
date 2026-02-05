@@ -1,0 +1,33 @@
+var a = 1;
+var temp;
+
+{
+    var c;
+}
+
+for (var b = 1; a < 1000; b += temp) {
+    print a;
+    if (a % 17 == 0) {
+        break;
+    }
+    temp = a;
+    a = b;
+}
+
+/*
+print "";
+
+var b = 20;
+do {
+    b += 1;
+    if (b % 2 == 0) continue;
+    print b;
+} while (b < 10);
+*/
+
+print "";
+
+for (var i = 1; i <= 12; i += 1) {
+    if (i % 3 != 0) continue;
+    print i;
+}

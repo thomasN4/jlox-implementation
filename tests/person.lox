@@ -1,0 +1,14 @@
+class Person {
+    init(givenName, surname, age) {
+        this.givenName = givenName;
+        this.surname = surname;
+        this.age = age;
+    }
+
+    introduce() {
+        print "Hi, I'm " + this.givenName + " " + this.surname + ".";
+    }
+}
+
+var bob = Person("Robert", "Desjardins", 25);
+bob.introduce();

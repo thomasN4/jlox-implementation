@@ -2,6 +2,7 @@ package com.craftinginterpreters.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,11 +13,40 @@ public class GenerateAst {
             System.exit(64);
         }
         String outputDir = args[0];
+        
         defineAst(outputDir, "Expr", Arrays.asList(
+                "Assign   : Token name, Expr value",
                 "Binary   : Expr left, Token operator, Expr right",
+                "Call     : Expr callee, Token paren, List<Expr> arguments",
+                "Get      : Expr object, Token name",
                 "Grouping : Expr expression",
+                "Lambda   : List<Token> params, List<Stmt> body",
                 "Literal  : Object value",
-                "Unary    : Token operator, Expr right"
+                "Logical  : Expr left, Token operator, Expr right",
+                "Set      : Expr object, Token name, Expr value",
+                "Super    : Token keyword, Token method",
+				"Ternary  : Expr condition, Expr trueBranch, Expr falseBranch",
+                "This     : Token keyword",
+                "Unary    : Token operator, Expr right",
+                "Variable : Token name"
+        ));
+
+        defineAst(outputDir, "Stmt", Arrays.asList(
+                "Block      : List<Stmt> statements",
+                "Class      : Token name, Expr.Variable superclass, " +
+                        "List<Expr.Variable> traits, " +
+                        "Map<Stmt.Function,Boolean> methods, " +
+                        "List<Stmt.Function> staticMethods",
+                "Expression : Expr expression",
+                "Flow       : Token type",
+                "Function   : Token name, List<Token> params, List<Stmt> body",
+                "If         : Expr condition, Stmt thenBranch, Stmt elseBranch",
+                "Print      : Expr expression",
+                "Return     : Token keyword, Expr value",
+                "Trait      : Token name, Map<Token,Integer> methods, " +
+                        "List<Stmt.Function> defaultImpl",
+                "Var        : Token name, Expr initializer",
+                "While      : Expr condition, Stmt body, Stmt increment"
         ));
     }
 
@@ -24,11 +54,13 @@ public class GenerateAst {
             String outputDir, String baseName, List<String> types)
             throws IOException {
         String path = outputDir + "/" + baseName + ".java";
-        PrintWriter writer = new PrintWriter(path, "UTF-8");
+        PrintWriter writer = new PrintWriter(path, StandardCharsets.UTF_8);
 
         writer.println("package com.craftinginterpreters.lox;");
         writer.println();
         writer.println("import java.util.List;");
+        writer.println("import java.util.Map");
+        writer.println("import com.craftinginterpreters.utils.*;");
         writer.println();
         writer.println("abstract class " + baseName + " {");
 

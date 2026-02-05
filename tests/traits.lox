@@ -1,0 +1,38 @@
+trait Jumpable {
+    jump();
+}
+
+trait Mortal {
+    default init_health(health, armor) {
+        this.health = health;
+        this.armor = armor;
+    }
+
+    takeDmg(dmg);
+}
+
+class Character (Jumpable, Mortal) {
+    init(x, y, x_speed, y_speed) {
+        this.x = x;
+        this.y = y;
+        this.x_speed = x_speed;
+        this.y_speed = y_speed;
+    }
+
+    jump() {
+        this.x = this.x + 5;
+        this.y = this.y + 8;
+    }
+
+    takeDmg(dmg) {
+        this.health = this.health - dmg;
+    }
+}
+
+npc1 = Character(120, 45, 5, 0);
+npc1.jump();
+
+npc1.init_health(20, 0);
+npc1.takeDmg(7);
+
+print "npc1: x=" + npc1.x + ", y=" + npc1.y + ", hp=" + npc1.health;

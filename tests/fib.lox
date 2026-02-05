@@ -1,0 +1,13 @@
+fun fib(n) {
+    if (n <= 1) return n;
+    return fib(n - 2) + fib(n - 1);
+}
+
+fun fibList(n) {
+    var t0 = clock();
+    for (var i = 0; i < n; i = i + 1) {
+        print fib(i);
+    }
+    var t1 = clock();
+    print "Took " + (t1 - t0) + " seconds.";
+}

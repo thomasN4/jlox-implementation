@@ -1,6 +1,11 @@
 package com.craftinginterpreters.lox;
 
-class RPN_Printer implements Expr.Visitor<String> {
+class RpnPrinter implements Expr.Visitor<String> {
+    @Override
+    public String visitAssignExpr(Expr.Assign expr) {
+        return "";
+    }
+
     @Override
     public String visitBinaryExpr(Expr.Binary expr) {
         return expr.left.accept(this) + ' '
@@ -9,7 +14,22 @@ class RPN_Printer implements Expr.Visitor<String> {
     }
 
     @Override
+    public String visitCallExpr(Expr.Call expr) {
+        return "";
+    }
+
+    @Override
+    public String visitGetExpr(Expr.Get expr) {
+        return "";
+    }
+
+    @Override
     public String visitGroupingExpr(Expr.Grouping expr) {
+        return expr.accept(this);
+    }
+
+    @Override
+    public String visitLambdaExpr(Expr.Lambda expr) {
         return "";
     }
 
@@ -19,7 +39,37 @@ class RPN_Printer implements Expr.Visitor<String> {
     }
 
     @Override
+    public String visitLogicalExpr(Expr.Logical expr) {
+        return "";
+    }
+
+    @Override
+    public String visitSetExpr(Expr.Set expr) {
+        return "";
+    }
+
+    @Override
+    public String visitSuperExpr(Expr.Super expr) {
+        return "";
+    }
+
+    @Override
+    public String visitTernaryExpr(Expr.Ternary expr) {
+        return "";
+    }
+
+    @Override
+    public String visitThisExpr(Expr.This expr) {
+        return "";
+    }
+
+    @Override
     public String visitUnaryExpr(Expr.Unary expr) {
+        return "";
+    }
+
+    @Override
+    public String visitVariableExpr(Expr.Variable expr) {
         return "";
     }
 
@@ -37,6 +87,6 @@ class RPN_Printer implements Expr.Visitor<String> {
                         new Expr.Literal(3)
                 )
         );
-        System.out.println(expr.accept(new RPN_Printer()));
+        System.out.println(expr.accept(new RpnPrinter()));
     }
 }
