@@ -1,7 +1,0 @@
-[[file:ch8challenges.png]]
-
-1. See source code.
-
-2. See source code.
-
-3. I expected it to print '3'. It /did/ print '3'. In Java, the compiler throws an error about variable redefinition; while in C, it prints '2'. And these were all lexically-scoped imperative languages. Because in other similar languages, such as C/C++ or Java, this code results in either undefined behavior or not even compile, users might not expect it to work "as expected" in Lox.

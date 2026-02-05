@@ -1,9 +1,0 @@
-[[file:ch11challenges.png]]
-
-1. Because functions declarations always come with its definition?
-
-2. In Java, this sort of redefinition at compile-time, and in C, it compiles and works as in Lox used to, but could result in undefined behavior. I prefer how Java handles the problem, because such redefinitions are almost certainly mistakes.
-
-3. My implementation reports warnings instead. See source code.
-
-4. Not totally sure what was meant. My solution is a huge mess. See source code.
